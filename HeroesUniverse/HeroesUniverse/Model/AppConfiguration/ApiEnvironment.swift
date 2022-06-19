@@ -12,11 +12,13 @@ enum ApiEnvironment: String {
 
     private var baseURLAbsoluteString: String {
 		switch self {
-		case .development: return "https://example.com/api/v1"
-		case .staging: return "http://localhost:8080/api/v1"
-		case .production: return "https://localhost:8080/api/v1"
+		case .development: return "https://gateway.marvel.com/v1/public"
+		case .staging: return "https://gateway.marvel.com/v1/public"
+		case .production: return "https://gateway.marvel.com/v1/public"
 		}
     }
 
     public var baseURL: URL? { URL(string: baseURLAbsoluteString) }
+	public var marvelPublicKey: String { return "cdd409c0602361a2312707c8c8642462" }
+	public var marvelPrivateKey: String { return "499207529b4fa90dee943cd1204cf9ea02f5b5b4" }
 }
