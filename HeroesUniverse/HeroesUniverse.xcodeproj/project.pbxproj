@@ -16,6 +16,12 @@
 		5D4095ED285F022800FF5E26 /* HeroesUniverseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4095EC285F022800FF5E26 /* HeroesUniverseTests.swift */; };
 		5D4095F7285F022800FF5E26 /* HeroesUniverseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4095F6285F022800FF5E26 /* HeroesUniverseUITests.swift */; };
 		5D4095F9285F022800FF5E26 /* HeroesUniverseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4095F8285F022800FF5E26 /* HeroesUniverseUITestsLaunchTests.swift */; };
+		5D62470B285FA8970087A10E /* ApiEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D624703285FA8970087A10E /* ApiEnvironment.swift */; };
+		5D62471A285FA9CB0087A10E /* ApiClientRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D624711285FA9CB0087A10E /* ApiClientRequest.swift */; };
+		5D62471B285FA9CB0087A10E /* ApiClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D624714285FA9CB0087A10E /* ApiClientError.swift */; };
+		5D62471C285FA9CB0087A10E /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D624715285FA9CB0087A10E /* ApiClient.swift */; };
+		5D62471D285FA9CB0087A10E /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D624717285FA9CB0087A10E /* Router.swift */; };
+		5D62471E285FA9CB0087A10E /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D624718285FA9CB0087A10E /* ApiRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +58,12 @@
 		5D409608285F02B400FF5E26 /* LintingWithConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LintingWithConfig.swift; sourceTree = "<group>"; };
 		5D40960C285F09BC00FF5E26 /* Shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shell.swift; sourceTree = "<group>"; };
 		5D40960E285F0A1B00FF5E26 /* HeroesUniverse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HeroesUniverse.entitlements; sourceTree = "<group>"; };
+		5D624703285FA8970087A10E /* ApiEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiEnvironment.swift; sourceTree = "<group>"; };
+		5D624711285FA9CB0087A10E /* ApiClientRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClientRequest.swift; sourceTree = "<group>"; };
+		5D624714285FA9CB0087A10E /* ApiClientError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClientError.swift; sourceTree = "<group>"; };
+		5D624715285FA9CB0087A10E /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		5D624717285FA9CB0087A10E /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		5D624718285FA9CB0087A10E /* ApiRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +115,9 @@
 		5D4095D4285F022600FF5E26 /* HeroesUniverse */ = {
 			isa = PBXGroup;
 			children = (
+				5D62470D285FA9CB0087A10E /* Network */,
+				5D6246F5285FA8970087A10E /* Model */,
+				5D6246CF285F9FB00087A10E /* Application */,
 				5D40960E285F0A1B00FF5E26 /* HeroesUniverse.entitlements */,
 				5D4095D5285F022600FF5E26 /* AppDelegate.swift */,
 				5D4095D7285F022600FF5E26 /* SceneDelegate.swift */,
@@ -139,6 +154,81 @@
 				5D40960C285F09BC00FF5E26 /* Shell.swift */,
 			);
 			path = Scripts;
+			sourceTree = "<group>";
+		};
+		5D6246CF285F9FB00087A10E /* Application */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		5D6246F5285FA8970087A10E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5D624702285FA8970087A10E /* AppConfiguration */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5D624702285FA8970087A10E /* AppConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				5D624703285FA8970087A10E /* ApiEnvironment.swift */,
+			);
+			path = AppConfiguration;
+			sourceTree = "<group>";
+		};
+		5D62470D285FA9CB0087A10E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				5D624712285FA9CB0087A10E /* Client */,
+				5D62470E285FA9CB0087A10E /* Routers */,
+				5D624710285FA9CB0087A10E /* Request */,
+				5D624716285FA9CB0087A10E /* Protocols */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		5D62470E285FA9CB0087A10E /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		5D624710285FA9CB0087A10E /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				5D624711285FA9CB0087A10E /* ApiClientRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		5D624712285FA9CB0087A10E /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				5D624713285FA9CB0087A10E /* Types */,
+				5D624715285FA9CB0087A10E /* ApiClient.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		5D624713285FA9CB0087A10E /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				5D624714285FA9CB0087A10E /* ApiClientError.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		5D624716285FA9CB0087A10E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5D624717285FA9CB0087A10E /* Router.swift */,
+				5D624718285FA9CB0087A10E /* ApiRequest.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,8 +385,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D62471A285FA9CB0087A10E /* ApiClientRequest.swift in Sources */,
+				5D62471D285FA9CB0087A10E /* Router.swift in Sources */,
+				5D62471C285FA9CB0087A10E /* ApiClient.swift in Sources */,
+				5D62471B285FA9CB0087A10E /* ApiClientError.swift in Sources */,
+				5D62470B285FA8970087A10E /* ApiEnvironment.swift in Sources */,
 				5D4095DA285F022600FF5E26 /* ViewController.swift in Sources */,
 				5D4095D6285F022600FF5E26 /* AppDelegate.swift in Sources */,
+				5D62471E285FA9CB0087A10E /* ApiRequest.swift in Sources */,
 				5D4095D8285F022600FF5E26 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
