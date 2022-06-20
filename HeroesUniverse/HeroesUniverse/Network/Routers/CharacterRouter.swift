@@ -10,7 +10,7 @@ import Foundation
 public typealias MarvelCharacterHttpResponse = HttpResponse<ApiClientListResponse<MarvelCharacter>>
 
 enum CharacterRouter: Router {
-	case listCharacters
+	case listCharacters(offset: Int, limit: Int)
 
 	var path: String {
 		switch self {
@@ -24,5 +24,9 @@ enum CharacterRouter: Router {
 		}
 	}
 
-	var parameters: Parameters { nil }
+	var parameters: Parameters {
+		switch self {
+		case let .listCharacters(offset, limit): return ["offset": "\(offset)", "limit": "\(limit)"]
+		}
+	}
 }

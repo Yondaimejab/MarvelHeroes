@@ -9,10 +9,11 @@ import Foundation
 import Combine
 
 struct MarvelApiClient {
+	static let shared = MarvelApiClient(session: .shared, environment: .development)
 	let session: URLSession
 	let environment: ApiEnvironment
 
-	init(session: URLSession = .shared, environment: ApiEnvironment = .production) {
+	private init(session: URLSession = .shared, environment: ApiEnvironment = .production) {
 		self.session = session
 		self.environment = environment
 	}
@@ -20,20 +21,11 @@ struct MarvelApiClient {
 	func publisherForRequest<T: ApiRequest>(_ request: T) -> AnyPublisher<T.Response, Error> {
 		let urlString = (environment.baseURL?.absoluteString ?? "") + request.path
 		var requestURL = URLComponents(string: urlString)
-		let timeStamp = "\(Date().currentTimeMilliSeconds)"
-		let hash = MD5(string: timeStamp + environment.marvelPrivateKey + environment.marvelPublicKey)
-		requestURL?.queryItems = [
-			URLQueryItem(name: "apikey", value: environment.marvelPublicKey),
-			URLQueryItem(name: "ts", value: timeStamp),
-			URLQueryItem(name: "hash", value: hash),
-			URLQueryItem(name: "limit", value: "10")
-		]
-		guard let url = requestURL?.url else {
-			return errorPublisher(for: request, apiClientError: .invalidURL)
-		}
+		requestURL?.queryItems = queryItemsFor(request, using: environment)
+		guard let url = requestURL?.url else { return errorPublisher(for: request, apiClientError: .invalidURL) }
 		var urlRequest = URLRequest(url: url)
 		urlRequest.httpMethod = request.method.rawValue
-		urlRequest.httpBody = request.body
+		urlRequest.httpBody = request.method != .GET ? request.body : nil
 		let publisher = session.dataTaskPublisher(for: urlRequest)
 			.tryMap { data, response -> Data in
 				guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
@@ -47,6 +39,23 @@ struct MarvelApiClient {
 			.receive(on: RunLoop.main)
 			.eraseToAnyPublisher()
 		return publisher
+	}
+
+	private func queryItemsFor<T: ApiRequest>(_ request: T, using environment: ApiEnvironment) -> [URLQueryItem] {
+		var queryItems: [URLQueryItem] = []
+		let timeStamp = "\(Date().currentTimeMilliSeconds)"
+		let hash = MD5(string: timeStamp + environment.marvelPrivateKey + environment.marvelPublicKey)
+		queryItems = [
+			URLQueryItem(name: "apikey", value: environment.marvelPublicKey),
+			URLQueryItem(name: "ts", value: timeStamp),
+			URLQueryItem(name: "hash", value: hash)
+		]
+		guard  let body = request.body else { return queryItems }
+		guard let dict = try? JSONSerialization.jsonObject(with: body) as? [String: String] else { return queryItems }
+		queryItems.append(
+			contentsOf: dict.compactMap { item in URLQueryItem(name: item.key, value: item.value) }
+		)
+		return queryItems
 	}
 
 	private func errorPublisher<T: ApiRequest>(
