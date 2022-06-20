@@ -15,8 +15,7 @@ enum ApiClientError: Error {
 	var localizedDescription: String {
 		switch self {
 		case .invalidURL: return NSLocalizedString("Invalid URL Provided", comment: "")
-		case .requestFailed(let statusCode):
-			return NSLocalizedString("Invalid Request Code \(statusCode)", comment: "")
+		case .requestFailed(let statusCode): return NSLocalizedString("Invalid Request Code \(statusCode)", comment: "")
 		case .postProcessingFailed(let error): return error.localizedDescription
 		}
 	}

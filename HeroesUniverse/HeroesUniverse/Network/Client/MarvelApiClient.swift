@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-struct ApiClient {
+struct MarvelApiClient {
 	let session: URLSession
 	let environment: ApiEnvironment
 
@@ -18,7 +18,17 @@ struct ApiClient {
 	}
 
 	func publisherForRequest<T: ApiRequest>(_ request: T) -> AnyPublisher<T.Response, Error> {
-		guard let url = environment.baseURL?.appendingPathComponent(request.path) else {
+		let urlString = (environment.baseURL?.absoluteString ?? "") + request.path
+		var requestURL = URLComponents(string: urlString)
+		let timeStamp = "\(Date().currentTimeMilliSeconds)"
+		let hash = MD5(string: timeStamp + environment.marvelPrivateKey + environment.marvelPublicKey)
+		requestURL?.queryItems = [
+			URLQueryItem(name: "apikey", value: environment.marvelPublicKey),
+			URLQueryItem(name: "ts", value: timeStamp),
+			URLQueryItem(name: "hash", value: hash),
+			URLQueryItem(name: "limit", value: "10")
+		]
+		guard let url = requestURL?.url else {
 			return errorPublisher(for: request, apiClientError: .invalidURL)
 		}
 		var urlRequest = URLRequest(url: url)
