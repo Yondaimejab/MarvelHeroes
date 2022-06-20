@@ -10,10 +10,10 @@ import XCTest
 
 class ApiClientRequestTest: XCTestCase {
 	func testCharactersApiClientRequest() throws {
-		let apiClient = MarvelApiClient(session: .shared, environment: .development)
-		let apiRequest = ApiClientRequest<MarvelCharacterHttpResponse>(router: CharacterRouter.listCharacters)
+		let characterRouter = CharacterRouter.listCharacters(offset: 0, limit: 10)
+		let apiRequest = ApiClientRequest<MarvelCharacterHttpResponse>(router: characterRouter)
 		let networkExpectation = expectation(description: "BackgroundWorkForApiCall")
-		let cancelable = apiClient.publisherForRequest(apiRequest)
+		let cancelable = MarvelApiClient.shared.publisherForRequest(apiRequest)
 			.sink { completion in
 				switch completion {
 				case .finished:

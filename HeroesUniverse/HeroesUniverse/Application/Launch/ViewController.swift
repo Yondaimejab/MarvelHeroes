@@ -8,7 +8,16 @@
 import UIKit
 
 class ViewController: UIViewController {
+	enum Segue: String {
+		case showHomeSegue
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
+	}
+
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		performSegue(withIdentifier: Segue.showHomeSegue.rawValue, sender: self)
 	}
 }
