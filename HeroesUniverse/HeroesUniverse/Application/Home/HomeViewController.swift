@@ -25,6 +25,7 @@ class HomeViewController: UIViewController {
 	var dataSource: MarvelHeroesDataSource?
 	var selectedCharacter: MarvelCharacter?
 	var isLoadingNextPage = false
+	let scaleTransition = ScaleNavigationTransition()
 
 	@IBOutlet var tableView: UITableView!
 
@@ -45,7 +46,7 @@ class HomeViewController: UIViewController {
 			guard let cell = cell as? HomeItemTableViewCell else {
 				fatalError("Could not dequeue cell for identifier: \(HomeItemTableViewCell.identifier)")
 			}
-			cell.configureView(with: hero)
+			cell.configureView(for: hero)
 			return cell
 		}
 		tableView.dataSource = dataSource
@@ -70,6 +71,8 @@ class HomeViewController: UIViewController {
 		if segue.identifier == Segue.details.rawValue {
 			guard let destination = segue.destination as? CharacterDetailsViewController else { return }
 			destination.marvelCharacter = selectedCharacter
+			destination.modalPresentationStyle = .fullScreen
+			destination.transitioningDelegate = self
 		}
 	}
 }
