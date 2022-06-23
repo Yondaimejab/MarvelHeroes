@@ -10,7 +10,7 @@ import Foundation
 @main
 enum LintingWithConfig {
 	static func main() {
-		startLinting(allowedWarnings: 1)
+		startLinting(allowedWarnings: 5)
 	}
 
 	static func startLinting(allowedWarnings: Int = 0) {

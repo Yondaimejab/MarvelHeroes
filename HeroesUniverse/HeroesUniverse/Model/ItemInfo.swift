@@ -10,7 +10,9 @@ import Foundation
 struct ItemInfo: Decodable {
 	struct Item: Decodable {
 		var name: String = ""
+		var resourceURI: String = ""
 	}
 	var available: Int = 0
-	var items: [Item]
+	var items: [Item] = []
+	var collectionURI: String = ""
 }

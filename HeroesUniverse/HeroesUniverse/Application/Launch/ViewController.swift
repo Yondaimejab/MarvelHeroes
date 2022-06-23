@@ -20,4 +20,9 @@ class ViewController: UIViewController {
 		super.viewDidAppear(animated)
 		performSegue(withIdentifier: Segue.showHomeSegue.rawValue, sender: self)
 	}
+
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		guard let destination = segue.destination as? HomeViewController else { return }
+		destination.modalPresentationStyle = .fullScreen
+	}
 }
