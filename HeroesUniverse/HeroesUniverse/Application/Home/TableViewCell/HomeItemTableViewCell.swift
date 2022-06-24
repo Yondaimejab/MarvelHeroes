@@ -48,7 +48,7 @@ class HomeItemTableViewCell: UITableViewCell {
 		imageShadowView.layer.shadowOpacity = DrawingConstants.shadowOpacity
 		imageShadowView.layer.shadowOffset = .zero
 		let cornerRadius = imageShadowView.frame.height / 2
-		imageShadowView.layer.shadowRadius = cornerRadius
+		imageShadowView.layer.shadowRadius = 10
 		imageShadowView.layer.cornerRadius = cornerRadius
 		let shadowPath = UIBezierPath(roundedRect: imageShadowView.bounds, cornerRadius: cornerRadius).cgPath
 		imageShadowView.layer.shadowPath = shadowPath

@@ -9,6 +9,10 @@ import UIKit
 import Anchorage
 
 class CharacterDetailsViewController: UIViewController {
+	enum DrawingConstants {
+		static let shadowOpacity: Float = 0.5
+	}
+
 	public var marvelCharacter: MarvelCharacter?
 
 	@IBOutlet var characterNameLabel: UILabel!
@@ -30,7 +34,16 @@ class CharacterDetailsViewController: UIViewController {
 	func buildDefaultLayout() {
 		infoItemsContainerStackView.subviews.forEach { $0.removeFromSuperview() }
 		imageContainerView.layer.maskedCorners = .all
-		imageContainerView.layer.cornerRadius = imageContainerView.frame.height / 2
+		characterImageView.layer.maskedCorners = .all
+		let cornerRadius = imageContainerView.frame.height / 2
+		imageContainerView.layer.cornerRadius = cornerRadius
+		characterImageView.layer.cornerRadius = characterImageView.bounds.height / 2
+		imageContainerView.layer.shadowOpacity = DrawingConstants.shadowOpacity
+		imageContainerView.layer.shadowColor = UIColor.black.cgColor
+		imageContainerView.layer.shadowOffset = .zero
+		imageContainerView.layer.shadowRadius = 10
+		let shadowPath = UIBezierPath(roundedRect: imageContainerView.bounds, cornerRadius: cornerRadius).cgPath
+		imageContainerView.layer.shadowPath = shadowPath
 	}
 
 	func configureView(with character: MarvelCharacter? = nil) {
@@ -52,6 +65,6 @@ class CharacterDetailsViewController: UIViewController {
 		}
 		let urlString = "https://randomuser.me/api/portraits/men/\(Int.random(in: 1...10)).jpg"
 		guard let url = URL(string: urlString) else { return }
-		characterImageView.loadImage(from: url, with: "person.full", into: characterImageView)
+		characterImageView.loadImage(from: url, with: "person.fill", into: characterImageView)
 	}
 }

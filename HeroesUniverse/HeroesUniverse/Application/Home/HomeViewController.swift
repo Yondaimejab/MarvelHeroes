@@ -26,13 +26,28 @@ class HomeViewController: UIViewController {
 	var selectedCharacter: MarvelCharacter?
 	var isLoadingNextPage = false
 	let scaleTransition = ScaleNavigationTransition()
+	var tableData: [MarvelCharacter] = []
+	var isFilteringResults: Bool {
+		!(searchBar.searchTextField.text?.isEmpty ?? true)
+	}
 
+	@IBOutlet var searchBar: UISearchBar!
 	@IBOutlet var tableView: UITableView!
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		configureTableView()
 		fetchListOfMarvelCharacters(offset: currentOffset, limit: pageSize)
+		subscribeToEvents()
+	}
+
+	func subscribeToEvents() {
+		searchBar.searchTextField.textChangedPublisher.sink { [weak self] text in
+			guard let self = self else { return }
+			guard !text.isEmpty else { return self.createDataSourceSnapshot(marvelCharacters: self.tableData) }
+			self.createFilterSnapshot(for: text)
+		}
+		.store(in: &cancelableList)
 	}
 
 	func configureTableView() {
@@ -53,6 +68,7 @@ class HomeViewController: UIViewController {
 	}
 
 	private func createDataSourceSnapshot(marvelCharacters: [MarvelCharacter]) {
+		tableData = marvelCharacters
 		var snapshot = NSDiffableDataSourceSnapshot<Section, MarvelCharacter>()
 		snapshot.appendSections([.main])
 		snapshot.appendItems(marvelCharacters, toSection: .main)
@@ -63,8 +79,33 @@ class HomeViewController: UIViewController {
 		guard let dataSource = dataSource else { return }
 		var snapshot = dataSource.snapshot()
 		guard snapshot.numberOfItems > 0 else { return createDataSourceSnapshot(marvelCharacters: marvelCharacters) }
+		tableData.append(contentsOf: marvelCharacters)
 		snapshot.appendItems(marvelCharacters)
 		dataSource.apply(snapshot, animatingDifferences: true)
+	}
+
+	// TODO: add unit test for this method
+	private func getFilteredCharacters(for searchTerm: String) -> [MarvelCharacter] {
+		return self.tableData.filter { marvelCharacter in
+			if let number = Int(searchTerm) {
+				let equalAmountOfComics = (marvelCharacter.comics?.available ?? 0) == number
+				let equalAmountOfSeries = (marvelCharacter.comics?.available ?? 0) == number
+				let equalAmountOfStories = (marvelCharacter.comics?.available ?? 0) == number
+				return equalAmountOfComics || equalAmountOfSeries || equalAmountOfStories
+			} else {
+				return marvelCharacter.name.contains(searchTerm)
+			}
+		}
+	}
+
+	func createFilterSnapshot(for searchTerm: String) {
+		let filteredCharacters = getFilteredCharacters(for: searchTerm).sorted { $0.name > $1.name }
+		var currentSnapshot = dataSource?.snapshot()
+		guard currentSnapshot != nil else { return }
+		if tableData.count > 1 { currentSnapshot?.deleteAllItems() }
+		currentSnapshot?.appendSections([.main])
+		currentSnapshot?.appendItems(filteredCharacters, toSection: .main)
+		if let snapshot = currentSnapshot { dataSource?.apply(snapshot, animatingDifferences: true) }
 	}
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
