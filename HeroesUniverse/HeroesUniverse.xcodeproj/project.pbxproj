@@ -25,6 +25,7 @@
 		5D4095ED285F022800FF5E26 /* HeroesUniverseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4095EC285F022800FF5E26 /* HeroesUniverseTests.swift */; };
 		5D4095F7285F022800FF5E26 /* HeroesUniverseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4095F6285F022800FF5E26 /* HeroesUniverseUITests.swift */; };
 		5D4095F9285F022800FF5E26 /* HeroesUniverseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4095F8285F022800FF5E26 /* HeroesUniverseUITestsLaunchTests.swift */; };
+		5D4D4EF128656083008C090F /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4D4EF028656083008C090F /* UITextField+Extension.swift */; };
 		5D62470B285FA8970087A10E /* ApiEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D624703285FA8970087A10E /* ApiEnvironment.swift */; };
 		5D62471A285FA9CB0087A10E /* ApiClientRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D624711285FA9CB0087A10E /* ApiClientRequest.swift */; };
 		5D62471B285FA9CB0087A10E /* ApiClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D624714285FA9CB0087A10E /* ApiClientError.swift */; };
@@ -96,6 +97,7 @@
 		5D409608285F02B400FF5E26 /* LintingWithConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LintingWithConfig.swift; sourceTree = "<group>"; };
 		5D40960C285F09BC00FF5E26 /* Shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shell.swift; sourceTree = "<group>"; };
 		5D40960E285F0A1B00FF5E26 /* HeroesUniverse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HeroesUniverse.entitlements; sourceTree = "<group>"; };
+		5D4D4EF028656083008C090F /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		5D624703285FA8970087A10E /* ApiEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiEnvironment.swift; sourceTree = "<group>"; };
 		5D624711285FA9CB0087A10E /* ApiClientRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClientRequest.swift; sourceTree = "<group>"; };
 		5D624714285FA9CB0087A10E /* ApiClientError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClientError.swift; sourceTree = "<group>"; };
@@ -233,6 +235,16 @@
 			path = Scripts;
 			sourceTree = "<group>";
 		};
+		5D4D4EEF2865606D008C090F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5DB616182863ADBE003644DC /* UIView+Extension.swift */,
+				5DB6161F28641F70003644DC /* CALayer+Extension.swift */,
+				5D4D4EF028656083008C090F /* UITextField+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		5D6246CF285F9FB00087A10E /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,13 +367,12 @@
 		5D624735285FF5810087A10E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				5D4D4EEF2865606D008C090F /* Extensions */,
 				5DB6161A2863D233003644DC /* ImageWithTitleView */,
 				5DB616132863A288003644DC /* InfoItemView */,
 				5DD430752862906500EE5901 /* Navigation */,
 				5D1B754B28603E150063F6B1 /* BadgeView */,
 				5D624736285FF58E0087A10E /* ColorPalette.swift */,
-				5DB616182863ADBE003644DC /* UIView+Extension.swift */,
-				5DB6161F28641F70003644DC /* CALayer+Extension.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -575,6 +586,7 @@
 				5D624737285FF58E0087A10E /* ColorPalette.swift in Sources */,
 				5DB6161E2863D251003644DC /* ImageWithTitleView.swift in Sources */,
 				5D624728285FD9F90087A10E /* MarvelCharacter.swift in Sources */,
+				5D4D4EF128656083008C090F /* UITextField+Extension.swift in Sources */,
 				5D62471A285FA9CB0087A10E /* ApiClientRequest.swift in Sources */,
 				5D62471D285FA9CB0087A10E /* Router.swift in Sources */,
 				5D62471C285FA9CB0087A10E /* MarvelApiClient.swift in Sources */,

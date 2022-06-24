@@ -47,7 +47,9 @@ class InfoItemView: UIView {
 	func configureView(for infoItem: ItemInfo?) {
 		itemsContainerStackView.subviews.forEach { $0.removeFromSuperview() }
 		guard let infoItem = infoItem else { return }
-		itemTitleLabel.text = "this character has \(infoItem.available) available \(itemName)"
+		itemTitleLabel.text = "This character has \(infoItem.available) available \(itemName)"
+		itemTitleLabel.numberOfLines = 0
+		itemTitleLabel.font = .preferredFont(forTextStyle: .title3)
 		infoItem.items.forEach {
 			var url = URLComponents(string: $0.resourceURI)
 			url?.queryItems = MarvelApiClient.shared.authHeadersQueryItems(for: MarvelApiClient.shared.environment)

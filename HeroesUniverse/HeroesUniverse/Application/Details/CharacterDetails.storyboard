@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -29,24 +28,24 @@
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mFh-XJ-RI0">
                                         <rect key="frame" x="0.0" y="42" width="366" height="179"/>
                                         <subviews>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WaH-nQ-Sfx">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WaH-nQ-Sfx">
                                                 <rect key="frame" x="101.5" y="8" width="163" height="163"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="85T-q7-q1b">
-                                                        <rect key="frame" x="0.0" y="-16" width="163" height="195"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="85T-q7-q1b">
+                                                        <rect key="frame" x="0.0" y="0.0" width="163" height="163"/>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="Crocodile Tooth"/>
                                                 <constraints>
-                                                    <constraint firstItem="85T-q7-q1b" firstAttribute="top" secondItem="WaH-nQ-Sfx" secondAttribute="top" constant="-16" id="B2D-Hf-vXr"/>
-                                                    <constraint firstAttribute="bottom" secondItem="85T-q7-q1b" secondAttribute="bottom" constant="-16" id="Cxy-7c-LEz"/>
+                                                    <constraint firstItem="85T-q7-q1b" firstAttribute="top" secondItem="WaH-nQ-Sfx" secondAttribute="top" id="B2D-Hf-vXr"/>
+                                                    <constraint firstAttribute="bottom" secondItem="85T-q7-q1b" secondAttribute="bottom" id="Cxy-7c-LEz"/>
                                                     <constraint firstAttribute="trailing" secondItem="85T-q7-q1b" secondAttribute="trailing" id="Eer-lJ-1Nx"/>
                                                     <constraint firstItem="85T-q7-q1b" firstAttribute="leading" secondItem="WaH-nQ-Sfx" secondAttribute="leading" id="iNY-iv-oN7"/>
                                                     <constraint firstAttribute="width" secondItem="WaH-nQ-Sfx" secondAttribute="height" multiplier="1:1" id="x5f-Mg-CBT"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="Crocodile Tooth"/>
                                         <constraints>
                                             <constraint firstItem="WaH-nQ-Sfx" firstAttribute="centerY" secondItem="mFh-XJ-RI0" secondAttribute="centerY" id="AFQ-sK-M2N"/>
                                             <constraint firstAttribute="bottom" secondItem="WaH-nQ-Sfx" secondAttribute="bottom" constant="8" id="PpS-1S-KZz"/>
@@ -144,8 +143,5 @@
         <namedColor name="Crocodile Tooth">
             <color red="0.81960784313725488" green="0.80000000000000004" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
