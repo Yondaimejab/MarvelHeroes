@@ -9,6 +9,10 @@ import UIKit
 import Nuke
 
 class HomeItemTableViewCell: UITableViewCell {
+	enum DrawingConstants {
+		static let shadowOpacity: Float = 0.5
+	}
+
 	static let identifier: String = "HomeItemTableViewCell"
 
 	@IBOutlet var label: UILabel!
@@ -29,30 +33,28 @@ class HomeItemTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
 		super.awakeFromNib()
-		configureView()
+		displayDefaultLayout()
+    }
+
+	private func displayDefaultLayout() {
+		backgroundColor = .clear
+		contentView.subviews.first?.layer.maskedCorners = .all
+		contentView.subviews.first?.layer.cornerRadius = CALayer.mediumSizeCornerRadius
 		imageContainerView.layer.maskedCorners = .all
 		imageContainerView.layer.cornerRadius = imageContainerView.frame.height / 2
 		imageContainerView.backgroundColor = .clear
 		imageShadowView.layer.maskedCorners = .all
 		imageShadowView.layer.shadowColor = UIColor.black.cgColor
-		imageShadowView.layer.shadowOpacity = 0.5
+		imageShadowView.layer.shadowOpacity = DrawingConstants.shadowOpacity
 		imageShadowView.layer.shadowOffset = .zero
-		imageShadowView.layer.shadowRadius = imageShadowView.frame.height / 12
 		let cornerRadius = imageShadowView.frame.height / 2
+		imageShadowView.layer.shadowRadius = 10
 		imageShadowView.layer.cornerRadius = cornerRadius
-		imageShadowView.layer.shadowPath = UIBezierPath(
-			roundedRect: imageShadowView.bounds,
-			cornerRadius: cornerRadius
-		).cgPath
-    }
-
-	func configureView() {
-		backgroundColor = .clear
-		contentView.subviews.first?.layer.maskedCorners = .all
-		contentView.subviews.first?.layer.cornerRadius = 12.0
+		let shadowPath = UIBezierPath(roundedRect: imageShadowView.bounds, cornerRadius: cornerRadius).cgPath
+		imageShadowView.layer.shadowPath = shadowPath
 	}
 
-	func configureView(with character: MarvelCharacter) {
+	func configureView(for character: MarvelCharacter) {
 		label.text = character.name
 		secondLabel.text = character.description
 		secondLabel.isHidden = character.description.isEmpty
@@ -63,7 +65,9 @@ class HomeItemTableViewCell: UITableViewCell {
 			badgeView.isHidden = true
 		}
 		captionLabel.text = "This Character has \(character.series?.available ?? 0) series"
-		loadImageForCell()
+		let urlString = "https://randomuser.me/api/portraits/thumb/men/\(Int.random(in: 1...10)).jpg"
+		guard let url = URL(string: urlString) else { return }
+		profileImageView.loadImage(from: url, with: "person.fill", into: profileImageView)
 	}
 
 	private func badgeText(for character: MarvelCharacter) -> String? {
@@ -71,19 +75,7 @@ class HomeItemTableViewCell: UITableViewCell {
 			return "\(comicsAvailable) comics"
 		} else if let storiesAvailable = character.stories?.available, storiesAvailable > 0 {
 			return "\(storiesAvailable) stories"
-		} else {
-			return nil
 		}
-	}
-
-	private func loadImageForCell() {
-		let urlString = "https://randomuser.me/api/portraits/thumb/men/\(Int.random(in: 1...10)).jpg"
-		guard let url = URL(string: urlString) else { return }
-		let options = ImageLoadingOptions(
-			placeholder: UIImage(systemName: "person.fill"),
-			transition: .fadeIn(duration: 0.33),
-			failureImage: UIImage(systemName: "person.fill")
-		)
-		Nuke.loadImage(with: url, options: options, into: profileImageView)
+		return nil
 	}
 }

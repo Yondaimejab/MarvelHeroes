@@ -58,6 +58,19 @@ struct MarvelApiClient {
 		return queryItems
 	}
 
+	// TODO: - ADD unit testing for this method
+	public func authHeadersQueryItems(for environment: ApiEnvironment) -> [URLQueryItem] {
+		var queryItems: [URLQueryItem] = []
+		let timeStamp = "\(Date().currentTimeMilliSeconds)"
+		let hash = MD5(string: timeStamp + environment.marvelPrivateKey + environment.marvelPublicKey)
+		queryItems = [
+			URLQueryItem(name: "apikey", value: environment.marvelPublicKey),
+			URLQueryItem(name: "ts", value: timeStamp),
+			URLQueryItem(name: "hash", value: hash)
+		]
+		return queryItems
+	}
+
 	private func errorPublisher<T: ApiRequest>(
 		for request: T,
 		apiClientError error: ApiClientError

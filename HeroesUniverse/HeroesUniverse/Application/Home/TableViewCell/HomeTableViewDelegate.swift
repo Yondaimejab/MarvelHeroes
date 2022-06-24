@@ -23,7 +23,7 @@ extension HomeViewController: UITableViewDelegate {
 		let height = scrollView.frame.size.height
 		let contentYoffset = scrollView.contentOffset.y
 		let distanceFromBottom = scrollView.contentSize.height - contentYoffset
-		if distanceFromBottom < height, !isLoadingNextPage {
+		if distanceFromBottom < height, !isLoadingNextPage, !isFilteringResults {
 			currentOffset += 1
 			fetchListOfMarvelCharacters(offset: currentOffset, limit: pageSize)
 		}

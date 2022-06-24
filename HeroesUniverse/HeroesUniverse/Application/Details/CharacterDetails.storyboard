@@ -3,30 +3,145 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Character Details View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="CharacterDetailsViewController" customModule="HeroesUniverse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="i6C-hh-n4x">
+                                <rect key="frame" x="24" y="60" width="366" height="253.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Joel Alcantara Burgos" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rB-TT-LQx">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="30"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mFh-XJ-RI0">
+                                        <rect key="frame" x="0.0" y="42" width="366" height="179"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WaH-nQ-Sfx">
+                                                <rect key="frame" x="101.5" y="8" width="163" height="163"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="85T-q7-q1b">
+                                                        <rect key="frame" x="0.0" y="0.0" width="163" height="163"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" name="Crocodile Tooth"/>
+                                                <constraints>
+                                                    <constraint firstItem="85T-q7-q1b" firstAttribute="top" secondItem="WaH-nQ-Sfx" secondAttribute="top" id="B2D-Hf-vXr"/>
+                                                    <constraint firstAttribute="bottom" secondItem="85T-q7-q1b" secondAttribute="bottom" id="Cxy-7c-LEz"/>
+                                                    <constraint firstAttribute="trailing" secondItem="85T-q7-q1b" secondAttribute="trailing" id="Eer-lJ-1Nx"/>
+                                                    <constraint firstItem="85T-q7-q1b" firstAttribute="leading" secondItem="WaH-nQ-Sfx" secondAttribute="leading" id="iNY-iv-oN7"/>
+                                                    <constraint firstAttribute="width" secondItem="WaH-nQ-Sfx" secondAttribute="height" multiplier="1:1" id="x5f-Mg-CBT"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" name="Crocodile Tooth"/>
+                                        <constraints>
+                                            <constraint firstItem="WaH-nQ-Sfx" firstAttribute="centerY" secondItem="mFh-XJ-RI0" secondAttribute="centerY" id="AFQ-sK-M2N"/>
+                                            <constraint firstAttribute="bottom" secondItem="WaH-nQ-Sfx" secondAttribute="bottom" constant="8" id="PpS-1S-KZz"/>
+                                            <constraint firstItem="WaH-nQ-Sfx" firstAttribute="top" secondItem="mFh-XJ-RI0" secondAttribute="top" constant="8" id="bj0-fv-dVn"/>
+                                            <constraint firstItem="WaH-nQ-Sfx" firstAttribute="centerX" secondItem="mFh-XJ-RI0" secondAttribute="centerX" id="crc-ze-pdQ"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="DESCRIPTION" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WzB-1p-PoV">
+                                        <rect key="frame" x="0.0" y="233" width="366" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3VL-Ke-hhn">
+                                <rect key="frame" x="24" y="329.5" width="366" height="532.5"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="366" placeholderIntrinsicHeight="300" translatesAutoresizingMaskIntoConstraints="NO" id="B5H-tc-MZM">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="532.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8qZ-S5-yzt">
+                                                <rect key="frame" x="0.0" y="0.0" width="366" height="600"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bHM-rE-Eia">
+                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="600"/>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" name="Crocodile Tooth"/>
+                                                <constraints>
+                                                    <constraint firstItem="bHM-rE-Eia" firstAttribute="leading" secondItem="8qZ-S5-yzt" secondAttribute="leading" id="6b7-Ue-Rgf"/>
+                                                    <constraint firstAttribute="trailing" secondItem="bHM-rE-Eia" secondAttribute="trailing" id="Gak-Yf-dVb"/>
+                                                    <constraint firstItem="bHM-rE-Eia" firstAttribute="top" secondItem="8qZ-S5-yzt" secondAttribute="top" id="JeL-cu-7zz"/>
+                                                    <constraint firstAttribute="bottom" secondItem="bHM-rE-Eia" secondAttribute="bottom" id="mxh-Z1-DnG"/>
+                                                    <constraint firstAttribute="height" constant="600" id="rlI-e9-6ev"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="8qZ-S5-yzt" firstAttribute="top" secondItem="B5H-tc-MZM" secondAttribute="top" id="RSJ-gD-YuS"/>
+                                            <constraint firstAttribute="trailing" secondItem="8qZ-S5-yzt" secondAttribute="trailing" id="Yc2-EA-vdb"/>
+                                            <constraint firstItem="8qZ-S5-yzt" firstAttribute="leading" secondItem="B5H-tc-MZM" secondAttribute="leading" id="boy-iM-4nJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="8qZ-S5-yzt" secondAttribute="bottom" id="kRa-K4-2iN"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" name="Crocodile Tooth"/>
+                                <constraints>
+                                    <constraint firstItem="8qZ-S5-yzt" firstAttribute="width" secondItem="3VL-Ke-hhn" secondAttribute="width" id="doE-2T-ajJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="B5H-tc-MZM" secondAttribute="bottom" id="kzI-2F-yOc"/>
+                                    <constraint firstItem="B5H-tc-MZM" firstAttribute="top" secondItem="3VL-Ke-hhn" secondAttribute="top" id="o6U-Xv-H28"/>
+                                    <constraint firstItem="B5H-tc-MZM" firstAttribute="leading" secondItem="3VL-Ke-hhn" secondAttribute="leading" id="w3B-bJ-UCj"/>
+                                    <constraint firstAttribute="trailing" secondItem="B5H-tc-MZM" secondAttribute="trailing" id="zty-aN-cct"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPT-lB-1Lf">
+                                <rect key="frame" x="356" y="52" width="42" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
+                                <connections>
+                                    <action selector="dismissView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fLl-vY-qcx"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Crocodile Tooth"/>
+                        <constraints>
+                            <constraint firstItem="3VL-Ke-hhn" firstAttribute="top" secondItem="i6C-hh-n4x" secondAttribute="bottom" constant="16" id="8Cp-05-Ssx"/>
+                            <constraint firstItem="3VL-Ke-hhn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="LaL-b7-KFh"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="3VL-Ke-hhn" secondAttribute="bottom" id="WI5-jG-mOh"/>
+                            <constraint firstItem="mFh-XJ-RI0" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.2" id="XIn-MP-IGw"/>
+                            <constraint firstItem="i6C-hh-n4x" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="e2R-q2-Twc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="3VL-Ke-hhn" secondAttribute="trailing" constant="24" id="eZY-4K-HZr"/>
+                            <constraint firstItem="i6C-hh-n4x" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="wsp-Tl-8kk"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="i6C-hh-n4x" secondAttribute="trailing" constant="24" id="xVl-4r-f9L"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="characterDescriptionLabel" destination="WzB-1p-PoV" id="4zg-qB-EZ0"/>
+                        <outlet property="characterImageView" destination="85T-q7-q1b" id="7H6-KC-SbZ"/>
+                        <outlet property="characterNameLabel" destination="9rB-TT-LQx" id="zKc-hJ-Em5"/>
+                        <outlet property="imageContainerView" destination="WaH-nQ-Sfx" id="mWF-0G-lCh"/>
+                        <outlet property="infoItemsContainerStackView" destination="bHM-rE-Eia" id="fgY-4m-DJz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="125"/>
+            <point key="canvasLocation" x="137.68115942028987" y="124.55357142857142"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="Crocodile Tooth">
+            <color red="0.81960784313725488" green="0.80000000000000004" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
