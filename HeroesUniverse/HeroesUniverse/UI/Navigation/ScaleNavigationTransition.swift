@@ -62,7 +62,7 @@ class ScaleNavigationTransition: NSObject, UIViewControllerAnimatedTransitioning
 			containerView.addSubview(toView)
 		}
 		containerView.bringSubviewToFront(view)
-		containerView.layer.maskedCorners = .all
+		containerView.layer.maskedCorners = .allCorners
 		if !isPresentingViewToAnimate { containerView.alpha = 1 }
 		UIView.animate(
 			withDuration: duration,

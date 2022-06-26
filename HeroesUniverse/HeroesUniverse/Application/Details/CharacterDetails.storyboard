@@ -67,11 +67,11 @@
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="366" placeholderIntrinsicHeight="300" translatesAutoresizingMaskIntoConstraints="NO" id="B5H-tc-MZM">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="532.5"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8qZ-S5-yzt">
-                                                <rect key="frame" x="0.0" y="0.0" width="366" height="600"/>
+                                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="366" placeholderIntrinsicHeight="800" translatesAutoresizingMaskIntoConstraints="NO" id="8qZ-S5-yzt">
+                                                <rect key="frame" x="0.0" y="0.0" width="366" height="800"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bHM-rE-Eia">
-                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="600"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="800"/>
                                                     </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" name="Crocodile Tooth"/>
@@ -80,7 +80,6 @@
                                                     <constraint firstAttribute="trailing" secondItem="bHM-rE-Eia" secondAttribute="trailing" id="Gak-Yf-dVb"/>
                                                     <constraint firstItem="bHM-rE-Eia" firstAttribute="top" secondItem="8qZ-S5-yzt" secondAttribute="top" id="JeL-cu-7zz"/>
                                                     <constraint firstAttribute="bottom" secondItem="bHM-rE-Eia" secondAttribute="bottom" id="mxh-Z1-DnG"/>
-                                                    <constraint firstAttribute="height" constant="600" id="rlI-e9-6ev"/>
                                                 </constraints>
                                             </view>
                                         </subviews>

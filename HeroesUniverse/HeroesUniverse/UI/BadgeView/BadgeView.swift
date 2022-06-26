@@ -44,9 +44,7 @@ class BadgeView: UIView {
 	}
 
 	func configureView() {
-		let maskedCorners: CACornerMask = [
-			.layerMaxXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner, .layerMinXMaxYCorner
-		]
+		let maskedCorners: CACornerMask = .allCorners
 		layer.maskedCorners = maskedCorners
 		contentView.layer.maskedCorners = maskedCorners
 		layer.cornerRadius = frame.size.height / 2
