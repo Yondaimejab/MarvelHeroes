@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import Anchorage
 
+@IBDesignable
 class ImageWithTitleView: UIView {
 	var imageURL: URL?
 	var title: String = ""
@@ -46,8 +47,12 @@ class ImageWithTitleView: UIView {
 		configureView()
 	}
 
+	override class func prepareForInterfaceBuilder() {
+		super.prepareForInterfaceBuilder()
+	}
+
 	func configureView() {
-		mainStackView.layer.maskedCorners = .all
+		mainStackView.layer.maskedCorners = .allCorners
 		mainStackView.layer.cornerRadius = CALayer.mediumSizeCornerRadius
 		guard let url = imageURL else { return }
 		imageView.loadImage(from: url, with: "doc.richtext.fill", into: imageView)

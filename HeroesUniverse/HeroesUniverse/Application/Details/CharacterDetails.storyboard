@@ -67,11 +67,11 @@
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="366" placeholderIntrinsicHeight="300" translatesAutoresizingMaskIntoConstraints="NO" id="B5H-tc-MZM">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="532.5"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8qZ-S5-yzt">
-                                                <rect key="frame" x="0.0" y="0.0" width="366" height="600"/>
+                                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="366" placeholderIntrinsicHeight="800" translatesAutoresizingMaskIntoConstraints="NO" id="8qZ-S5-yzt">
+                                                <rect key="frame" x="0.0" y="0.0" width="366" height="800"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bHM-rE-Eia">
-                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="600"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="800"/>
                                                     </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" name="Crocodile Tooth"/>
@@ -80,7 +80,6 @@
                                                     <constraint firstAttribute="trailing" secondItem="bHM-rE-Eia" secondAttribute="trailing" id="Gak-Yf-dVb"/>
                                                     <constraint firstItem="bHM-rE-Eia" firstAttribute="top" secondItem="8qZ-S5-yzt" secondAttribute="top" id="JeL-cu-7zz"/>
                                                     <constraint firstAttribute="bottom" secondItem="bHM-rE-Eia" secondAttribute="bottom" id="mxh-Z1-DnG"/>
-                                                    <constraint firstAttribute="height" constant="600" id="rlI-e9-6ev"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -101,9 +100,8 @@
                                     <constraint firstAttribute="trailing" secondItem="B5H-tc-MZM" secondAttribute="trailing" id="zty-aN-cct"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPT-lB-1Lf">
-                                <rect key="frame" x="356" y="52" width="42" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPT-lB-1Lf">
+                                <rect key="frame" x="356" y="56" width="42" height="31"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
@@ -119,8 +117,10 @@
                             <constraint firstItem="3VL-Ke-hhn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="LaL-b7-KFh"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="3VL-Ke-hhn" secondAttribute="bottom" id="WI5-jG-mOh"/>
                             <constraint firstItem="mFh-XJ-RI0" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.2" id="XIn-MP-IGw"/>
+                            <constraint firstItem="fPT-lB-1Lf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="12" id="Z8h-U4-JqA"/>
                             <constraint firstItem="i6C-hh-n4x" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="e2R-q2-Twc"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="3VL-Ke-hhn" secondAttribute="trailing" constant="24" id="eZY-4K-HZr"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fPT-lB-1Lf" secondAttribute="trailing" constant="16" id="g5i-Re-Rqz"/>
                             <constraint firstItem="i6C-hh-n4x" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="wsp-Tl-8kk"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="i6C-hh-n4x" secondAttribute="trailing" constant="24" id="xVl-4r-f9L"/>
                         </constraints>

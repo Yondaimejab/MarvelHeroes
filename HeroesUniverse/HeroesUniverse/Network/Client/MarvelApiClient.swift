@@ -41,7 +41,7 @@ struct MarvelApiClient {
 		return publisher
 	}
 
-	private func queryItemsFor<T: ApiRequest>(_ request: T, using environment: ApiEnvironment) -> [URLQueryItem] {
+	public func queryItemsFor<T: ApiRequest>(_ request: T, using environment: ApiEnvironment) -> [URLQueryItem] {
 		var queryItems: [URLQueryItem] = []
 		let timeStamp = "\(Date().currentTimeMilliSeconds)"
 		let hash = MD5(string: timeStamp + environment.marvelPrivateKey + environment.marvelPublicKey)

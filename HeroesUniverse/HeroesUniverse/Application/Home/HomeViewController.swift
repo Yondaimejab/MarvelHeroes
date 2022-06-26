@@ -33,12 +33,17 @@ class HomeViewController: UIViewController {
 
 	@IBOutlet var searchBar: UISearchBar!
 	@IBOutlet var tableView: UITableView!
+	@IBOutlet var bannerMessageView: BannerMessageView!
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		configureTableView()
 		fetchListOfMarvelCharacters(offset: currentOffset, limit: pageSize)
 		subscribeToEvents()
+		validateSizeClassesRegular()
+//		if let label = corneredContainer.subviews.first { $0 is UILabel } {
+//			corneredContainer.bringSubviewToFront(label)
+//		}
 	}
 
 	func subscribeToEvents() {
@@ -114,6 +119,25 @@ class HomeViewController: UIViewController {
 			destination.marvelCharacter = selectedCharacter
 			destination.modalPresentationStyle = .fullScreen
 			destination.transitioningDelegate = self
+		}
+	}
+	override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+	}
+
+	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+		validateSizeClassesRegular()
+	}
+
+	private func validateSizeClassesRegular() {
+		if case .regular = traitCollection.verticalSizeClass,
+		case .regular = traitCollection.horizontalSizeClass {
+			UIView.animate(withDuration: 2) {
+				self.bannerMessageView.isHidden = false
+			}
+		} else {
+			UIView.animate(withDuration: 2) {
+				self.bannerMessageView.isHidden = true
+			}
 		}
 	}
 }

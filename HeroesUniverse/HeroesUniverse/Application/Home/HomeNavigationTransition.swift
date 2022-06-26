@@ -13,10 +13,14 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
 		presenting: UIViewController,
 		source: UIViewController
 	) -> UIViewControllerAnimatedTransitioning? {
-		if let presentedCharacter = selectedCharacter, let indexPath = dataSource?.indexPath(for: presentedCharacter),
+		if let presentedCharacter = selectedCharacter,
+		let indexPath = dataSource?.indexPath(for: presentedCharacter),
 		let cell = tableView.cellForRow(at: indexPath) {
 			scaleTransition.originFrame = cell.contentView.convert(cell.contentView.bounds, to: nil)
-			cell.contentView.isHidden = true
+			UIView.animate(withDuration: 1.5) {
+				cell.contentView.alpha = 0
+				cell.contentView.isHidden = true
+			}
 		}
 		scaleTransition.isPresentingViewToAnimate = true
 		return scaleTransition
@@ -25,7 +29,10 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
 	func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 		if let presentedCharacter = selectedCharacter, let indexPath = dataSource?.indexPath(for: presentedCharacter),
 		let cell = tableView.cellForRow(at: indexPath) {
-			cell.contentView.isHidden = false
+			UIView.animate(withDuration: 0.5) {
+				cell.contentView.alpha = 1
+				cell.contentView.isHidden = false
+			}
 		}
 		scaleTransition.isPresentingViewToAnimate = false
 		return scaleTransition
