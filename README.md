@@ -26,8 +26,8 @@ Third Party
 
 Screenshots
 ------------
-    Home
-    --------
+Home
+--------
 <img src="HeroesUniverse/Resources/Images/Home.png" width="400" height="800">
 
 Videos
