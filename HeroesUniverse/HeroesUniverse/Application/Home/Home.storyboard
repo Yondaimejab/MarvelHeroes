@@ -20,38 +20,70 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="109"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" searchBarStyle="prominent" translatesAutoresizingMaskIntoConstraints="NO" id="haT-bQ-naS">
-                                        <rect key="frame" x="20" y="8" width="374" height="51"/>
+                                        <rect key="frame" x="24" y="8" width="366" height="51"/>
                                         <color key="barTintColor" name="Swan White"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marvel Character List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ajm-M8-gLQ">
-                                        <rect key="frame" x="20" y="71" width="374" height="30"/>
+                                        <rect key="frame" x="24" y="71" width="366" height="30"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
+                                <edgeInsets key="layoutMargins" top="8" left="24" bottom="8" right="24"/>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9ET-QL-PbP">
                                 <rect key="frame" x="24" y="165" width="366" height="697"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9W6-FX-jbM" customClass="BannerMessageView" customModule="HeroesUniverse" customModuleProvider="target">
+                                <rect key="frame" x="24" y="793.5" width="867.5" height="44.5"/>
+                                <color key="backgroundColor" red="0.7721806191738233" green="0.81450562986997743" blue="0.86078917980194092" alpha="0.59380578047392385" colorSpace="custom" customColorSpace="displayP3"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="maskCorners" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Hello Ipad Users this Text is in a view that uses size clases to only be shown in regular height and width devices"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="contentBackground">
+                                        <color key="value" red="0.59215686270000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Crocodile Tooth"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0Xy-FS-mDe" secondAttribute="trailing" id="2sa-Z6-hDY"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="9ET-QL-PbP" secondAttribute="bottom" id="Az6-Bn-UyU"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9W6-FX-jbM" secondAttribute="trailing" constant="24" id="I9y-ej-cD7"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="9W6-FX-jbM" secondAttribute="bottom" constant="24" id="Kid-It-ckH"/>
                             <constraint firstItem="0Xy-FS-mDe" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Qj3-up-g7U"/>
                             <constraint firstItem="0Xy-FS-mDe" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="WDO-qh-way"/>
+                            <constraint firstItem="9W6-FX-jbM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="fpC-b4-71u"/>
                             <constraint firstItem="9ET-QL-PbP" firstAttribute="top" secondItem="0Xy-FS-mDe" secondAttribute="bottom" constant="12" id="oeh-sz-OsY"/>
                             <constraint firstItem="9ET-QL-PbP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="r79-Kx-8bi"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9ET-QL-PbP" secondAttribute="trailing" constant="24" id="saI-jl-Ado"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="I9y-ej-cD7"/>
+                                <exclude reference="Kid-It-ckH"/>
+                                <exclude reference="fpC-b4-71u"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="I9y-ej-cD7"/>
+                                <include reference="Kid-It-ckH"/>
+                                <include reference="fpC-b4-71u"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="P4E-rN-S6v"/>
                     <connections>
+                        <outlet property="bannerMessageView" destination="9W6-FX-jbM" id="39o-eT-Ulr"/>
                         <outlet property="searchBar" destination="haT-bQ-naS" id="f0o-CX-qJ9"/>
                         <outlet property="tableView" destination="9ET-QL-PbP" id="iC5-6D-PKQ"/>
                         <segue destination="19H-dv-uMa" kind="show" identifier="showCharacterDetails" id="iet-WW-v6U"/>

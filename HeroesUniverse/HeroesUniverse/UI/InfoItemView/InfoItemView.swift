@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import Anchorage
 
+@IBDesignable
 class InfoItemView: UIView {
 	var itemName = ""
 	var infoItem: ItemInfo?
@@ -42,6 +43,10 @@ class InfoItemView: UIView {
 		addSubview(contentView)
 		contentView.translatesAutoresizingMaskIntoConstraints = false
 		contentView.edgeAnchors == edgeAnchors
+	}
+
+	override class func prepareForInterfaceBuilder() {
+		super.prepareForInterfaceBuilder()
 	}
 
 	func configureView(for infoItem: ItemInfo?) {

@@ -38,12 +38,12 @@ class HomeItemTableViewCell: UITableViewCell {
 
 	private func displayDefaultLayout() {
 		backgroundColor = .clear
-		contentView.subviews.first?.layer.maskedCorners = .all
+		contentView.subviews.first?.layer.maskedCorners = .allCorners
+		imageShadowView.layer.maskedCorners = .allCorners
+		imageContainerView.layer.maskedCorners = .allCorners
 		contentView.subviews.first?.layer.cornerRadius = CALayer.mediumSizeCornerRadius
-		imageContainerView.layer.maskedCorners = .all
 		imageContainerView.layer.cornerRadius = imageContainerView.frame.height / 2
 		imageContainerView.backgroundColor = .clear
-		imageShadowView.layer.maskedCorners = .all
 		imageShadowView.layer.shadowColor = UIColor.black.cgColor
 		imageShadowView.layer.shadowOpacity = DrawingConstants.shadowOpacity
 		imageShadowView.layer.shadowOffset = .zero

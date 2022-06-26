@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,68 +20,52 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Xp3-eE-8yA">
-                    <rect key="frame" x="0.0" y="44" width="454" height="256"/>
+                    <rect key="frame" x="0.0" y="0.0" width="454" height="300"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KO7-Dl-unK">
-                            <rect key="frame" x="16" y="8" width="422" height="44"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KO7-Dl-unK">
+                            <rect key="frame" x="16" y="52" width="422" height="44"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R5c-gb-vEC">
-                            <rect key="frame" x="16" y="64" width="422" height="150"/>
+                            <rect key="frame" x="16" y="108" width="422" height="150"/>
                             <subviews>
                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZHP-BK-wq9">
                                     <rect key="frame" x="0.0" y="0.0" width="422" height="150"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ufk-tQ-TgO">
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="0Na-sq-0nh">
                                             <rect key="frame" x="0.0" y="0.0" width="422" height="150"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="0Na-sq-0nh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="422" height="150"/>
-                                                </stackView>
-                                            </subviews>
-                                            <color key="backgroundColor" name="Crocodile Tooth"/>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="0Na-sq-0nh" secondAttribute="bottom" id="7rn-ff-Seo"/>
-                                                <constraint firstItem="0Na-sq-0nh" firstAttribute="leading" secondItem="Ufk-tQ-TgO" secondAttribute="leading" id="A8M-8l-IZ7"/>
-                                                <constraint firstAttribute="trailing" secondItem="0Na-sq-0nh" secondAttribute="trailing" id="Qy5-K4-vOl"/>
-                                                <constraint firstItem="0Na-sq-0nh" firstAttribute="width" secondItem="Ufk-tQ-TgO" secondAttribute="width" id="e4D-rX-lA7"/>
-                                                <constraint firstItem="0Na-sq-0nh" firstAttribute="top" secondItem="Ufk-tQ-TgO" secondAttribute="top" id="mDX-zz-umt"/>
-                                            </constraints>
-                                        </view>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="Ufk-tQ-TgO" secondAttribute="trailing" id="0EJ-7L-Gtv"/>
-                                        <constraint firstAttribute="bottom" secondItem="Ufk-tQ-TgO" secondAttribute="bottom" id="FT0-xx-GnF"/>
-                                        <constraint firstItem="Ufk-tQ-TgO" firstAttribute="leading" secondItem="ZHP-BK-wq9" secondAttribute="leading" id="JsJ-AT-7dG"/>
-                                        <constraint firstItem="Ufk-tQ-TgO" firstAttribute="top" secondItem="ZHP-BK-wq9" secondAttribute="top" id="zkB-YF-Gdy"/>
+                                        <constraint firstItem="0Na-sq-0nh" firstAttribute="leading" secondItem="ZHP-BK-wq9" secondAttribute="leading" id="4Zn-t3-q4N"/>
+                                        <constraint firstAttribute="trailing" secondItem="0Na-sq-0nh" secondAttribute="trailing" id="9XK-7Y-pkC"/>
+                                        <constraint firstItem="0Na-sq-0nh" firstAttribute="top" secondItem="ZHP-BK-wq9" secondAttribute="top" id="Qjt-fH-srT"/>
+                                        <constraint firstItem="0Na-sq-0nh" firstAttribute="height" secondItem="ZHP-BK-wq9" secondAttribute="height" id="TzW-0T-fJX"/>
+                                        <constraint firstAttribute="bottom" secondItem="0Na-sq-0nh" secondAttribute="bottom" id="pky-hh-oju"/>
                                     </constraints>
                                 </scrollView>
                             </subviews>
                             <color key="backgroundColor" name="Crocodile Tooth"/>
                             <constraints>
-                                <constraint firstItem="ZHP-BK-wq9" firstAttribute="leading" secondItem="R5c-gb-vEC" secondAttribute="leading" id="Ha9-jf-jrq"/>
-                                <constraint firstAttribute="trailing" secondItem="ZHP-BK-wq9" secondAttribute="trailing" id="JAT-e4-6Ii"/>
-                                <constraint firstAttribute="bottom" secondItem="ZHP-BK-wq9" secondAttribute="bottom" id="Kkj-E3-XC1"/>
-                                <constraint firstItem="ZHP-BK-wq9" firstAttribute="width" secondItem="R5c-gb-vEC" secondAttribute="width" id="XFf-ir-FJc"/>
-                                <constraint firstItem="ZHP-BK-wq9" firstAttribute="height" secondItem="R5c-gb-vEC" secondAttribute="height" id="bT0-ab-uaY"/>
-                                <constraint firstItem="Ufk-tQ-TgO" firstAttribute="height" secondItem="R5c-gb-vEC" secondAttribute="height" id="iUr-EQ-E8V"/>
-                                <constraint firstAttribute="height" constant="150" id="nYR-VQ-4xZ"/>
-                                <constraint firstItem="ZHP-BK-wq9" firstAttribute="top" secondItem="R5c-gb-vEC" secondAttribute="top" id="txC-ux-4wk"/>
+                                <constraint firstItem="ZHP-BK-wq9" firstAttribute="centerY" secondItem="R5c-gb-vEC" secondAttribute="centerY" id="TZG-dr-hUO"/>
+                                <constraint firstItem="ZHP-BK-wq9" firstAttribute="centerX" secondItem="R5c-gb-vEC" secondAttribute="centerX" id="b8A-1l-5yp"/>
+                                <constraint firstItem="ZHP-BK-wq9" firstAttribute="width" secondItem="R5c-gb-vEC" secondAttribute="width" id="cU9-D1-HIt"/>
+                                <constraint firstAttribute="height" constant="150" id="crk-IM-qyg"/>
+                                <constraint firstItem="ZHP-BK-wq9" firstAttribute="height" secondItem="R5c-gb-vEC" secondAttribute="height" id="lp8-UO-1eP"/>
                             </constraints>
                         </view>
                     </subviews>
                     <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
                 </stackView>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" name="Crocodile Tooth"/>
             <constraints>
-                <constraint firstItem="Xp3-eE-8yA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Ppo-p2-7y0"/>
-                <constraint firstItem="Xp3-eE-8yA" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="eSL-VA-qdk"/>
-                <constraint firstItem="Xp3-eE-8yA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="iuS-rn-EGp"/>
-                <constraint firstAttribute="bottom" secondItem="Xp3-eE-8yA" secondAttribute="bottom" id="uLn-bm-YWE"/>
+                <constraint firstItem="Xp3-eE-8yA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="PVs-a3-K5s"/>
+                <constraint firstAttribute="trailing" secondItem="Xp3-eE-8yA" secondAttribute="trailing" id="bph-2w-PdM"/>
+                <constraint firstAttribute="bottom" secondItem="Xp3-eE-8yA" secondAttribute="bottom" id="e7f-PF-iIg"/>
+                <constraint firstItem="Xp3-eE-8yA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vHv-cd-w3J"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="166.66666666666669" y="-46.875"/>

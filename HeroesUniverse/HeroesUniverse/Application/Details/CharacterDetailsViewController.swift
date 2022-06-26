@@ -33,8 +33,8 @@ class CharacterDetailsViewController: UIViewController {
 
 	func buildDefaultLayout() {
 		infoItemsContainerStackView.subviews.forEach { $0.removeFromSuperview() }
-		imageContainerView.layer.maskedCorners = .all
-		characterImageView.layer.maskedCorners = .all
+		imageContainerView.layer.maskedCorners = .allCorners
+		characterImageView.layer.maskedCorners = .allCorners
 		let cornerRadius = imageContainerView.frame.height / 2
 		imageContainerView.layer.cornerRadius = cornerRadius
 		characterImageView.layer.cornerRadius = characterImageView.bounds.height / 2
